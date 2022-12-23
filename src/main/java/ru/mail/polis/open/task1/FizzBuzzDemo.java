@@ -1,29 +1,31 @@
 package ru.mail.polis.open.task1;
 
 public class FizzBuzzDemo implements FizzBuzz {
-    private final int DIV_1 = 3;
-    private final int DIV_2 = 5;
-    private final int DIV_3 = DIV_1 * DIV_2;
+    private static final int DIVIDER_1 = 3;
+    private static final int DIVIDER_2 = 5;
+    private static final int DIVIDER_MULTIPLE = DIVIDER_1 * DIVIDER_2;
 
     @Override
     public void print(int from, int to) {
-        int curr = from;
-        int finish = to + 1;
-        while (curr < finish) {
-            if (curr % DIV_3 == 0) {
-                System.out.println("FizzBuzz");
-            } else if (curr % DIV_1 == 0) {
-                System.out.println("Fizz");
-            } else if (curr % DIV_2 == 0) {
-                System.out.println("Buzz");
-            } else {
-                System.out.println(curr);
+        if (from < to) {
+            while (from <= to) {
+                if (from % DIVIDER_MULTIPLE == 0) {
+                    System.out.println("FizzBuzz");
+                } else if (from % DIVIDER_1 == 0) {
+                    System.out.println("Fizz");
+                } else if (from % DIVIDER_2 == 0) {
+                    System.out.println("Buzz");
+                } else {
+                    System.out.println(from);
+                }
+                from++;
             }
-            curr++;
+        } else {
+            System.out.println("Incorrect numbers");
         }
     }
 
     public static void main(String[] args) {
-        new FizzBuzzDemo().print(1,100);
+        new FizzBuzzDemo().print(1, 100);
     }
 }
